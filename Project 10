@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int linearSearchInString(string str, char target) {
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == target)
+            return i;
+    }
+    return -1;
+}
+
+int main() {
+    string str = "hello world";
+    char target = 'o';
+    
+    int result = linearSearchInString(str, target);
+    
+    if (result != -1)
+        cout << "Character found at index " << result << endl;
+    else
+        cout << "Character not found" << endl;
+
+    return 0;
+}
