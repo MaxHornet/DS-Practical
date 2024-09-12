@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int BinarySearch(int arr[], int n, int element) {
+    int s = 0, e = n - 1;
+
+    while (s <= e) {
+        int mid = (s + e) / 2;
+
+        if (arr[mid] == element)
+            return mid;
+        else if (arr[mid] > element)
+            e = mid - 1;
+        else
+            s = mid + 1;
+    }
+    return -1;
+}
+
+int main() {
+    int n, element, answer;
+
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    int arr[n];
+
+    cout << "Enter the elements: \n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Enter the element to be searched: ";
+    cin >> element;
+
+    answer = BinarySearch(arr, n, element);
+
+    if (answer == -1) {
+        cout << "Element not found\n";
+    } else {
+        cout << "Element found at position " << answer + 1 << endl;
+    }
+
+    return 0;
+}
